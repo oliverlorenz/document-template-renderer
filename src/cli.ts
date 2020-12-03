@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command } from 'commander';
 import { writeFileSync, accessSync } from 'fs';
 import {} from 'yaml';
