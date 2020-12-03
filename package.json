@@ -4,6 +4,7 @@
 	"description": "",
 	"main": "dist/cli.js",
 	"scripts": {
+		"prepare": "tsc",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"bin": {

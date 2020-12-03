@@ -3,9 +3,8 @@
 import { Command } from 'commander';
 import { writeFileSync, accessSync } from 'fs';
 import {} from 'yaml';
-import { render, set } from 'carbone';
+import * as carbone from 'carbone';
 import { read } from 'yaml-import';
-
 const command = new Command()
 	.requiredOption('-t, --template <template>', 'template file')
 	.requiredOption('-i, --input <file>', 'input file')
@@ -14,7 +13,7 @@ const command = new Command()
 	.version('0.0.1')
 	.parse(process.argv);
 
-set({
+carbone.set({
 	lang: command.lang || 'en-us',
 });
 
@@ -26,7 +25,10 @@ try {
 	process.exit(1);
 }
 
-render(command.template, read(command.input), {}, function (err, result) {
+carbone.render(command.template, read(command.input), {}, function (
+	err,
+	result
+) {
 	if (err) {
 		return console.log(err);
 	}
